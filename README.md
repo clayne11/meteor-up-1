@@ -91,6 +91,8 @@ This will create two files in your Meteor Up project directory:
 
   // Install MongoDB on the server. Does not destroy the local MongoDB on future setups
   "setupMongo": true,
+  // Set MongoDB version, check what version of Mongo you are using in development "meteor mongo"
+  "mongoVersion": 2.6.7,
 
   // Application name (no spaces).
   "appName": "meteor",
