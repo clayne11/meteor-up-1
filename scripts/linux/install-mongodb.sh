@@ -1,12 +1,11 @@
 #!/bin/bash
-MONGO_VERSION=<%= mongoVersion %>
 
 set -e
 # we use this data directory for the backward compatibility
 # older mup uses mongodb from apt-get and they used this data directory
 sudo mkdir -p /var/lib/mongodb
+sudo docker pull mongo:<%= mongoVersion %>
 
-sudo docker pull mongo:$MONGO_VERSION
 set +e
 sudo docker rm -f mongodb
 set -e
