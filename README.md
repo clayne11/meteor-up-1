@@ -1,6 +1,4 @@
-# Meteor Up X (Stable Version)
-
-> The latest development version of mup is https://github.com/kadirahq/meteor-up.
+# Meteor Up Dockerized (Stable Version)
 
 #### Production Quality Meteor Deployments
 
@@ -54,13 +52,13 @@ This version of Meteor Up is powered by [Docker](http://www.docker.com/) and it 
 
 ### Installation
 
-    npm install -g mupx
+    npm install -g mupd
 
 ### Creating a Meteor Up Project
 
     mkdir ~/my-meteor-deployment
     cd ~/my-meteor-deployment
-    mupx init
+    mupd init
 
 This will create two files in your Meteor Up project directory:
 
@@ -121,23 +119,23 @@ This will create two files in your Meteor Up project directory:
 
 ### Setting Up a Server
 
-    mupx setup
+    mupd setup
 
-This will setup the server for the `mupx` deployments. It will take around 2-5 minutes depending on the server's performance and network availability.
+This will setup the server for the `mupd` deployments. It will take around 2-5 minutes depending on the server's performance and network availability.
 
 ### Deploying an App
 
-    mupx deploy
+    mupd deploy
 
 This will bundle the Meteor project and deploy it to the server. Bundling process is very similar to how `meteor deploy` do it.
 
 ### Other Utility Commands
 
-* `mupx reconfig` - reconfigure app with new environment variables and Meteor settings
-* `mupx stop` - stop the app
-* `mupx start` - start the app
-* `mupx restart` - restart the app
-* `mupx logs [-f --tail=50]` - get logs
+* `mupd reconfig` - reconfigure app with new environment variables and Meteor settings
+* `mupd stop` - stop the app
+* `mupd start` - start the app
+* `mupd restart` - restart the app
+* `mupd logs [-f --tail=50]` - get logs
 
 ### Build Options
 
@@ -219,7 +217,7 @@ Meteor Up uses Docker to run and manage your app. It uses [MeteorD](https://gith
 * If you decided to use MongoDB, it'll be also running as a Docker conatiner. It's bound to the local interface and port 27017 (you cannot access from the outside)
 * the database is named `<appName>`
 
-For more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-up/blob/mupx/lib/taskLists/linux.js).
+For more information see [`lib/taskLists.js`](https://github.com/arunoda/meteor-up/blob/mupd/lib/taskLists/linux.js).
 
 #### Multiple Deployment Targets
 
@@ -305,29 +303,29 @@ To learn more about the SSL setup refer to the [`mup-frontend-server`](https://g
 
 ### Updating Mup
 
-To update `mupx` to the latest version, just type:
+To update `mupd` to the latest version, just type:
 
-    npm update mupx -g
+    npm update mupd -g
 
-You should try and keep `mupx` up to date in order to keep up with the latest Meteor changes.
+You should try and keep `mupd` up to date in order to keep up with the latest Meteor changes.
 
 ### Troubleshooting
 
 #### Check Logs
-If you suddenly can't deploy your app anymore, first use the `mupx logs -f` command to check the logs for error messages.
+If you suddenly can't deploy your app anymore, first use the `mupd logs -f` command to check the logs for error messages.
 
 One of the most common problems is your Node version getting out of date. In that case, see “Updating” section above.
 
 #### Verbose Output
-If you need to see the output of `mupx` (to see more precisely where it's failing or hanging, for example), run it like so:
+If you need to see the output of `mupd` (to see more precisely where it's failing or hanging, for example), run it like so:
 
-    DEBUG=* mupx <command>
+    DEBUG=* mupd <command>
 
-where `<command>` is one of the `mupx` commands such as `setup`, `deploy`, etc.
+where `<command>` is one of the `mupd` commands such as `setup`, `deploy`, etc.
 
 ### Migrating from Meteor Up 0.x
 
-`mupx` is not fully backward compatible with Meteor Up 0.x. But most of the `mup.json` remain the same. Here are some of the changes:
+`mupd` is not fully backward compatible with Meteor Up 0.x. But most of the `mup.json` remain the same. Here are some of the changes:
 
 * Docker is the now runtime for Meteor Up
 * We don't have use Upstart any more
@@ -349,4 +347,4 @@ Let's assume our appName is `meteor`
 * Stop mongodb if you are using: `stop mongod`
 * Remove MongoDB with: `apt-get remove mongodb`
 
-Then do `mupx setup` and then `mupx deploy`.
+Then do `mupd setup` and then `mupd deploy`.
